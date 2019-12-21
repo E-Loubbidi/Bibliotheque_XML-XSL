@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT bibliotheque (livres, adherents, empreints) >
+<!ELEMENT livres (livre*) >
+<!ATTLIST livre isbn ID #REQUIRED >
+<!ATTLIST livre code CDATA #REQUIRED >
+<!ATTLIST livre datepublication CDATA  #REQUIRED>
+<!ELEMENT livre (titre, description) >
+<!ELEMENT  titre (#PCDATA) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT adherents (adherent*) >
+<!ELEMENT adherent (nom, prenom) >
+<!ATTLIST adherent id ID #REQUIRED >
+<!ELEMENT nom (#PCDATA) >
+<!ELEMENT prenom (#PCDATA) >
+<!ELEMENT empreints (sortie | entree)* >
+<!ELEMENT sortie EMPTY >
+<!ATTLIST sortie date CDATA #REQUIRED >
+<!ATTLIST sortie livre CDATA #REQUIRED >
+<!ATTLIST sortie adherent CDATA #REQUIRED >
+<!ELEMENT entree EMPTY >
+<!ATTLIST entree date CDATA #REQUIRED >
+<!ATTLIST entree livre CDATA #REQUIRED >
+<!ATTLIST entree adherent CDATA #REQUIRED >

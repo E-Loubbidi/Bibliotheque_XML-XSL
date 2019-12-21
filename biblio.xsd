@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name = "bibliotheque">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name = "livres"/>
+                <xsd:element name = "adherents"/>
+                <xsd:element name = "empreints"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="livres">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name = "livre" maxOccurs="unbounded" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="livre">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name = "titre" />
+                <xsd:element name = "description" />
+            </xsd:sequence>
+            <xsd:attribute name = "isbn" type = "xsd:string"/>
+            <xsd:attribute name = "code" type = "xsd:ID"/>
+            <xsd:attribute name = "datepublication" type = "xsd:date"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="adherents">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name = "adherent" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="adherent">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name = "nom" type = "xsd:string"/>
+                <xsd:element name = "prenom" type = "xsd:string"/>
+            </xsd:sequence>
+            <xsd:attribute name = "id" type="xsd:ID"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="empreints">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element name = "sortie">
+                    <xsd:complexType>
+                        <xsd:attribute name = "date" type = "xsd:date"/>
+                        <xsd:attribute name = "livre" type = "xsd:IDREF"/>
+                        <xsd:attribute name = "adherent" type = "xsd:IDREF"/>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name = "entree">
+                    <xsd:complexType>
+                        <xsd:attribute name = "date" type = "xsd:date"/>
+                        <xsd:attribute name = "livre" type = "xsd:IDREF"/>
+                        <xsd:attribute name = "adherent" type = "xsd:IDREF"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:all>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
